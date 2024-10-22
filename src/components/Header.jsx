@@ -1,23 +1,40 @@
-import React from 'react'
-import '../styles/header.css'
-import Logo from '../assets/logo.svg'
-import Search from '../assets/search.svg'
+import Logo from "./Logo"
+import shoppingIcon from "/src/assets/images/shopping-cart.svg"
+import { NavLink } from "react-router-dom";
 
-export default function Header() {
+function Header (){
     return (
-        <React.Fragment>
-            <header className='w-full'>
-                <div className='flex  px-40 py-10 align-center justify-evenly'>
-                    <div id="logo-wrapper" className='flex'>
-                        <img src={Logo} alt="Logo Digital College"className='size-10'/>
-                        <h1 className='font-semibold text-[--primary] text-4xl'>Digital Store</h1>
-                    </div>
-                    <div className='bg-[--light-gray-3] w-80 flex items-center justify-between rounded p-2'>
-                        <span>Tênis</span>
-                        <img src={Search} alt="Busca por produto" className='size-6'/>
-                    </div>
+        <> 
+    <div className="w-full h-48 bg-white ">
+        <div className="px-20 py-10">
+            <div className="flex space-x-6 ">
+                <Logo color="#C92071"/>
+                <input type="text" placeholder="Pesquisar produto..." className="bg-[#F5F5F5] rounded-md p-2 w-5/12" />
+                <div className="flex items-center pl-6 ">
+                <a href="#" className="underline ">Cadastre-se</a>
                 </div>
-            </header>
-        </React.Fragment>
+                <button className="w-28 h-10 text-[#F5F5F5] bg-[#C92071] rounded-md" >Entrar</button>
+                <div className="pl-10">
+                <img src= {shoppingIcon} alt="Icone de carrinho de compras" />  
+                </div>
+            </div>
+
+            <div className="pt-14">
+                <nav className=" flex space-x-6">
+                <NavLink to="/" className={({isActive}) => isActive 
+                ? "font-bold underline text-[#C92071]" : "text-normal hover:font-bold hover:underline hover:text-[#C92071]" }> Home </NavLink>
+                <NavLink to="/products" className={({isActive}) => isActive 
+                ? "font-bold underline text-[#C92071]" : "text-normal hover:font-bold hover:underline hover:text-[#C92071]" }> Produtos </NavLink>
+                <NavLink to="/productsView" className={({isActive}) => isActive 
+                ? "font-bold underline text-[#C92071]" : "text-normal hover:font-bold hover:underline hover:text-[#C92071]" }> Categorias </NavLink>
+                <NavLink to="/" className={({isActive}) => isActive 
+                ? "font-bold underline text-[#C92071]" : "text-normal hover:font-bold hover:underline hover:text-[#C92071]" }> Pedidos </NavLink>
+                </nav>
+            </div>
+        </div>
+    </div>
+        </>
     )
 }
+
+export default Header;
