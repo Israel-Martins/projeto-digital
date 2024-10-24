@@ -41,7 +41,7 @@ export default function Gallery() {
 		<div className="gallery max-w-[1600px] max-h-[900px] ml-1 mr-1">
 			<div className="slider relative overflow-hidden rounded-xl">
 				<div 
-					className="slides flex ease-in-out duration-500"
+					id='item' className="slides flex ease-in-out duration-500"
 					style={css}>
 					{tagsImg}
 				</div>
