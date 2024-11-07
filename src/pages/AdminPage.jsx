@@ -15,7 +15,7 @@ export default function AdminPage() {
     return(
         <div>
             <h1>Cadastro de Produto</h1>
-            <button>SAIR</button>
+            <button className="bg-black text-white font-bold" onClick={logout}>SAIR</button>
         </div>
     )
 
