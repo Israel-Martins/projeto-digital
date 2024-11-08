@@ -1,5 +1,4 @@
 import Layout from "../components/Layout";
-import Gallery from "../components/Gallery";
 import Section from "../components/Section";
 
 export default function ProductListingPage() {

@@ -1,6 +1,7 @@
 import CardSale from "../components/CardSale";
 import Gallery from "../components/Gallery"
 import Layout from "../components/Layout";
+import ProductCard from "../components/ProductCard";
 
 export default function HomePage() {
     return (
@@ -8,7 +9,7 @@ export default function HomePage() {
 
         <Gallery />
         <CardSale />
-        
+        <ProductCard />
         
         </Layout>
 
