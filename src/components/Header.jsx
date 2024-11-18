@@ -23,11 +23,11 @@ function Header (){
                 <nav className=" flex space-x-6">
                 <NavLink to="/" className={({isActive}) => isActive 
                 ? "font-bold underline text-[#C92071]" : "text-normal hover:font-bold hover:underline hover:text-[#C92071]" }> Home </NavLink>
-                <NavLink to="/produtos" className={({isActive}) => isActive 
+                <NavLink to="/products" className={({isActive}) => isActive 
                 ? "font-bold underline text-[#C92071]" : "text-normal hover:font-bold hover:underline hover:text-[#C92071]" }> Produtos </NavLink>
-                <NavLink to="/productsView" className={({isActive}) => isActive 
+                <NavLink to="/categories" className={({isActive}) => isActive 
                 ? "font-bold underline text-[#C92071]" : "text-normal hover:font-bold hover:underline hover:text-[#C92071]" }> Categorias </NavLink>
-                <NavLink to="/" className={({isActive}) => isActive 
+                <NavLink to="/orders" className={({isActive}) => isActive 
                 ? "font-bold underline text-[#C92071]" : "text-normal hover:font-bold hover:underline hover:text-[#C92071]" }> Pedidos </NavLink>
                 </nav>
             </div>

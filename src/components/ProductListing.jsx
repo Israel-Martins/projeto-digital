@@ -1,46 +1,37 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import Section from "../components/Section"
 
 
-function ProductListing ({maxNumber}) {
-    const url = 'https://raw.githubusercontent.com/gt-05/.github/refs/heads/main/db.json';
-    const [products, setProducts] = useState([]);
+export default function ProductListing ({props}) {
+    
+    let [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error('Erro ao buscar produtos');
-                }
-                const data = await response.json();
-                setProducts(data.products);
-            } catch (error) {
-                console.error(error);
+    useEffect(function() {
+       fetch("https://localhost:3000/products")
+       .then(response => response.json())
+       .then(body => {
+            let productsResponse = body.sort(function (current, next) {
+                return current.price - next.price
+            });
+            if(props.orderBy === 'maior') {
+                productsResponse = productsResponse.reverse();
             }
-        };
+            setProducts(productsResponse);
+       });
+    }, [props.orderBy]);
 
-        fetchProducts();
-    }, []);
-   return(
-
-<div className="container flex justify-evenly flex-wrap"> 
-{products.slice(0, maxNumber).map((product, index) => {
-                let image = product.images[0]?.url ?? product.placeHolder_image;
-                
-                return (
-                    <ProductCard
-                        key={index}
-                        image={image}
-                        name={product.name}
-                        price={product.price}
-                        priceDiscount={product.price_with_discount}
-                        alt={product.name} // Adicionando um alt para a imagem
-                    />
-                    
-                );
+    return (
+        <Section className="flex gap-[24px] justify-center flex-wrap">
+            {products.map(product => {
+                let image = product.images[0]?.url ?? product.placeholder_image
+                return <ProductCard 
+                image={image}
+                name={product.name}
+                price={product.price}
+                priceDiscount={product.price_with_discount}
+                slug={product.slug} />
             })}
-</div>
-
-)}
- export default ProductListing 
+        </Section>
+    );
+}
