@@ -3,12 +3,12 @@ import ProductCard from "./ProductCard";
 import Section from "../components/Section"
 
 
-export default function ProductListing ({props}) {
+export default function ProductListing (props) {
     
     let [products, setProducts] = useState([]);
 
     useEffect(function() {
-       fetch("https://localhost:3000/products")
+       fetch("http://localhost:3000/products")
        .then(response => response.json())
        .then(body => {
             let productsResponse = body.sort(function (current, next) {
@@ -18,6 +18,8 @@ export default function ProductListing ({props}) {
                 productsResponse = productsResponse.reverse();
             }
             setProducts(productsResponse);
+            console.log(productsResponse);
+            
        });
     }, [props.orderBy]);
 

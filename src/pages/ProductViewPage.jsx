@@ -8,7 +8,7 @@ export default function ProductViewPage() {
     return (
         <Layout>
             <div className="flex mb-6">
-            <Gallery className="h-96 overflow-hidden" />
+            <Gallery height="800px" width="800px" />
             </div>
             <div className="mt-36">
             <Section 

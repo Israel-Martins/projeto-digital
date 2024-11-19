@@ -7,7 +7,7 @@ import Section from "../components/Section";
 export default function HomePage() {
     return (
         <Layout>
-        <Gallery />
+        <Gallery width="1600px" height="700px" hidden="hidden" />
         <Section>
         <CardSale />
         </Section>

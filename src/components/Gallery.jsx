@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 
-export default function Gallery() {
+export default function Gallery({width = '1600px', height = '900px', hidden}) {
 
 	const [current, setCurrent] = useState(0);
 
@@ -28,17 +28,30 @@ export default function Gallery() {
 			setCurrent(position < 0 ? (imgs.length - 1) * 100 : position);
 		}
 	}
+	function handlerThumbnailClick(index) {
+		setCurrent(index * 100);
+	}
+
+	let thumbnails = imgs.map((img, index) => {
+		return (
+			<div key={index} className={`thumbnail min-w-[60px] m-1 cursor-pointer flex ${hidden}`} onClick={() => handlerThumbnailClick(index)}>
+				<img className= "w-full h-full object-cover"
+				src={img.src}
+				alt={`thumbnail ${index + 1}`} />
+			</div>
+		);
+	});
 
 	let tagsImg = imgs.map(function (img) {
 		return (
 			<div class="slide min-w-full">
-				<img class="w-full h-full" src={img.src} />
+				<img class="w-full h-full object-cover" src={img.src} />
 			</div>
 		)
 	});
 
 	return (
-		<div className="gallery max-w-[1600px] max-h-[900px] ml-1 mr-1">
+		<div className="gallery ml-1 mr-1" style={{maxWidth: width, maxHeight: height}}>
 			<div className="slider relative overflow-hidden rounded-xl">
 				<div 
 					id='item' className="slides flex ease-in-out duration-500"
@@ -57,6 +70,9 @@ export default function Gallery() {
 					onClick={event => handlerSlide('next')}>
 					<img src="/src/assets/icons/next.svg" />
 				</span>
+			</div>
+			<div className="thumbnails flex justify-center mt-4">
+				{thumbnails}
 			</div>
 		</div>
 	);
