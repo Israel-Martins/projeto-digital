@@ -3,7 +3,7 @@ function ProductCard(props) {
     return (
         <>
         <div className="w-[292px] h-[439px]">
-                <div className="bg-[#626262] w-full h-[321px]">
+                <div className="bg-[#626262] w-[full] h-[321px]">
                     <img src={props.image} alt="Produto em Alta" 
                     className="w-full h-full object-cover" />
                 </div>

@@ -6,13 +6,13 @@ export default function Section(props) {
     let position = `text-${align}`;
     return (
         <>
-            <div className="flex flex-col m-auto max-w-[1220px]">
-                <div className="flex">
+            <div className="flex flex-col m-auto max-w-[1260px] mb-[70px]">
+                <div className="flex mb-[15px]">
                 <div className={position + ' grow'}>
-                    <h2>{props.title}</h2>
+                    <h2 className="text-[24px] font-extrabold">{props.title}</h2>
                 </div>
                 {props.link && (
-                    <div className="">
+                    <div className="self-center">
                         <a className={`flex text-[${props.link.color}] `} href={props.link.href}>{props.link.text}<img className="pl-5" src={Arrow}></img></a>
                     </div>
                 )}

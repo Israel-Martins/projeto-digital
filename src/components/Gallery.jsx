@@ -14,6 +14,7 @@ export default function Gallery({width = '1600px', height = '900px', hidden}) {
 		{ src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/refs/heads/main/public/home-slide-5.jpeg" },
 		{ src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/refs/heads/main/public/home-slide-6.jpeg" },
 		{ src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/refs/heads/main/public/home-slide-8.jpeg" },
+		{ src: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/refs/heads/main/public/home-slide-7.jpeg" },
 	];
 
 	function handlerSlide(direction) {
@@ -51,7 +52,7 @@ export default function Gallery({width = '1600px', height = '900px', hidden}) {
 	});
 
 	return (
-		<div className="gallery ml-1 mr-1" style={{maxWidth: width, maxHeight: height}}>
+		<div className={`gallery ml-1 mr-1`} style={{maxWidth: width, maxHeight: height}}>
 			<div className="slider relative overflow-hidden rounded-xl">
 				<div 
 					id='item' className="slides flex ease-in-out duration-500"

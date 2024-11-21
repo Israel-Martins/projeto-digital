@@ -9,7 +9,7 @@ export default function ProductListingPage() {
 
     return (
        <>
-       <Layout>
+       <Layout className="flex min-h-screen">
 
          <Section>
             <ProductCheckBox />
