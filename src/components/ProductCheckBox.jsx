@@ -33,7 +33,7 @@ export default function ProductCheckBox() {
                                 </div>
                                 <div className="flex flex items-center mb-2">
                                     <input type="checkbox" id="adiddas" name="adiddas" className="w-[22px] h-[22px] accent-[#C92071] " />
-                                    <label className="text-[14px] text-[#474747] pl-2" for="adiddas"> Adiddas</label>
+                                    <label className="text-[14px] text-[#474747] pl-2" for="adiddas"> Adidas</label>
                                 </div>
                                 <div className="flex flex items-center mb-2">
                                     <input type="checkbox" id="calenciaga" name="calenciaga" className="w-[22px] h-[22px] accent-[#C92071] " />
